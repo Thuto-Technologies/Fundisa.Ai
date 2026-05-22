@@ -1,180 +1,170 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fundisa AI — Teaching Made Simple</title>
+    <title>Fundisa AI — AI Teaching Studio for All Primary Schools</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
-            --navy: #0A2E5A;
-            --gold: #D4AF37;
-            --teal: #008B8B;
+            --primary: #6C3CE1;
+            --primary-light: #8B5CF6;
+            --primary-dark: #4C1D95;
+            --accent: #F59E0B;
+            --accent-light: #FCD34D;
+            --teal: #14B8A6;
+            --teal-light: #5EEAD4;
+            --coral: #F43F5E;
+            --sky: #0EA5E9;
+            --navy: #0F172A;
+            --slate: #1E293B;
+            --gray-50: #F8FAFC;
+            --gray-100: #F1F5F9;
+            --gray-200: #E2E8F0;
+            --gray-300: #CBD5E1;
+            --gray-400: #94A3B8;
+            --gray-500: #64748B;
+            --gray-600: #475569;
+            --gray-700: #334155;
             --white: #FFFFFF;
-            --light-gray: #F5F7FA;
-            --dark-gray: #333333;
-            --navy-light: #1A3E6A;
-            --gold-light: #E5C44A;
-            --teal-light: #00A8A8;
+            --radius: 16px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 20px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 40px rgba(0,0,0,0.12);
+            --shadow-xl: 0 20px 60px rgba(0,0,0,0.15);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
-            font-family: 'Open Sans', sans-serif;
-            color: var(--dark-gray);
+            font-family: 'Inter', sans-serif;
+            color: var(--gray-700);
             line-height: 1.6;
             overflow-x: hidden;
+            background: var(--white);
         }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Space Grotesk', sans-serif; }
 
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        /* Navigation */
+        /* Navbar */
         .navbar {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
-            background: rgba(10, 46, 90, 0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(255,255,255,0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
             padding: 0 2rem;
-            transition: all 0.3s ease;
+            transition: var(--transition);
         }
-
-        .navbar.scrolled {
-            box-shadow: 0 2px 20px rgba(0,0,0,0.2);
-        }
-
+        .navbar.scrolled { box-shadow: var(--shadow-md); }
         .nav-container {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
             height: 70px;
         }
-
         .nav-logo {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             text-decoration: none;
         }
-
         .nav-logo-icon {
-            width: 40px;
-            height: 40px;
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(108,60,225,0.3);
         }
-
         .nav-logo-text {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
             font-size: 1.4rem;
-            color: var(--white);
+            color: var(--navy);
         }
-
-        .nav-logo-text span {
-            color: var(--gold);
-        }
-
+        .nav-logo-text span { color: var(--primary); }
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 0.5rem;
             align-items: center;
         }
-
         .nav-links a {
-            color: rgba(255,255,255,0.85);
+            color: var(--gray-600);
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s;
+            font-size: 0.9rem;
+            padding: 8px 16px;
+            border-radius: 10px;
+            transition: var(--transition);
         }
-
-        .nav-links a:hover {
-            color: var(--gold);
-        }
-
+        .nav-links a:hover { color: var(--primary); background: rgba(108,60,225,0.05); }
         .nav-cta {
-            background: var(--gold);
-            color: var(--navy) !important;
-            padding: 10px 24px;
-            border-radius: 50px;
-            font-weight: 700 !important;
-            transition: all 0.3s !important;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light)) !important;
+            color: white !important;
+            padding: 10px 24px !important;
+            border-radius: 12px !important;
+            font-weight: 600 !important;
+            box-shadow: 0 4px 15px rgba(108,60,225,0.3);
         }
-
-        .nav-cta:hover {
-            background: var(--gold-light);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
-        }
-
+        .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(108,60,225,0.4) !important; background: linear-gradient(135deg, var(--primary-dark), var(--primary)) !important; }
         .mobile-toggle {
             display: none;
-            flex-direction: column;
-            gap: 5px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
             cursor: pointer;
-            padding: 5px;
+            color: var(--navy);
         }
 
-        .mobile-toggle span {
-            width: 25px;
-            height: 2px;
-            background: var(--white);
-            transition: all 0.3s;
-        }
-
-        /* Hero Section */
+        /* Hero */
         .hero {
             min-height: 100vh;
-            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 50%, #0D3D73 100%);
+            background: linear-gradient(180deg, #F5F3FF 0%, #EDE9FE 30%, #FFFFFF 100%);
             display: flex;
             align-items: center;
             position: relative;
             overflow: hidden;
             padding-top: 70px;
         }
-
         .hero::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(0, 139, 139, 0.15) 0%, transparent 70%);
+            top: 10%;
+            right: -5%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(108,60,225,0.08) 0%, transparent 70%);
             border-radius: 50%;
         }
-
         .hero::after {
             content: '';
             position: absolute;
-            bottom: -30%;
-            left: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            bottom: 10%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(20,184,166,0.06) 0%, transparent 70%);
             border-radius: 50%;
         }
-
         .hero-container {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
             padding: 4rem 2rem;
             display: grid;
@@ -184,642 +174,872 @@
             position: relative;
             z-index: 1;
         }
-
-        .hero-content {
-            animation: fadeInUp 1s ease;
-        }
-
+        .hero-content { animation: fadeInUp 0.8s ease; }
         .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(212, 175, 55, 0.15);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            padding: 8px 20px;
+            background: linear-gradient(135deg, rgba(108,60,225,0.1), rgba(20,184,166,0.1));
+            border: 1px solid rgba(108,60,225,0.2);
+            padding: 8px 18px;
             border-radius: 50px;
-            color: var(--gold);
-            font-size: 0.85rem;
+            color: var(--primary);
+            font-size: 0.82rem;
             font-weight: 600;
             margin-bottom: 1.5rem;
         }
-
-        .hero-badge .pulse {
+        .hero-badge .dot {
             width: 8px;
             height: 8px;
-            background: var(--gold);
+            background: var(--teal);
             border-radius: 50%;
             animation: pulse 2s infinite;
         }
-
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.5); }
+        }
         .hero h1 {
-            font-size: 3.2rem;
-            font-weight: 900;
-            color: var(--white);
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--navy);
             line-height: 1.15;
             margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
         }
-
-        .hero h1 .highlight {
-            color: var(--gold);
-            position: relative;
+        .hero h1 .gradient-text {
+            background: linear-gradient(135deg, var(--primary), var(--teal));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-
-        .hero h1 .highlight::after {
-            content: '';
-            position: absolute;
-            bottom: 2px;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--gold);
-            opacity: 0.3;
-            border-radius: 2px;
-        }
-
         .hero p {
             font-size: 1.15rem;
-            color: rgba(255,255,255,0.8);
+            color: var(--gray-500);
             margin-bottom: 2rem;
             max-width: 520px;
             line-height: 1.8;
         }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .btn-primary {
-            background: var(--gold);
-            color: var(--navy);
-            padding: 16px 36px;
-            border-radius: 50px;
-            font-weight: 700;
+        .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .btn-hero-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: 16px 32px;
+            border-radius: 14px;
+            font-weight: 600;
             font-size: 1rem;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            transition: all 0.3s;
+            gap: 10px;
+            transition: var(--transition);
             border: none;
             cursor: pointer;
-            font-family: 'Montserrat', sans-serif;
+            box-shadow: 0 8px 25px rgba(108,60,225,0.3);
         }
-
-        .btn-primary:hover {
-            background: var(--gold-light);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--white);
-            padding: 16px 36px;
-            border-radius: 50px;
+        .btn-hero-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 35px rgba(108,60,225,0.4); }
+        .btn-hero-secondary {
+            background: var(--white);
+            color: var(--navy);
+            padding: 16px 32px;
+            border-radius: 14px;
             font-weight: 600;
             font-size: 1rem;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            transition: all 0.3s;
-            border: 2px solid rgba(255,255,255,0.3);
+            gap: 10px;
+            transition: var(--transition);
+            border: 2px solid var(--gray-200);
             cursor: pointer;
-            font-family: 'Montserrat', sans-serif;
         }
-
-        .btn-secondary:hover {
-            border-color: var(--white);
-            background: rgba(255,255,255,0.1);
-        }
-
+        .btn-hero-secondary:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-2px); }
         .hero-stats {
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
             margin-top: 3rem;
             padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid var(--gray-200);
         }
-
-        .stat-item {
-            text-align: left;
-        }
-
+        .stat-item { text-align: left; }
         .stat-number {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--gold);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--teal));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-webkit-text-fill-color: transparent;
         }
+        .stat-label { font-size: 0.82rem; color: var(--gray-500); font-weight: 500; }
 
-        .stat-label {
-            font-size: 0.85rem;
-            color: rgba(255,255,255,0.6);
-        }
-
-        .hero-visual {
-            position: relative;
-            animation: fadeInRight 1s ease 0.3s both;
-        }
-
-        .hero-image-container {
-            position: relative;
-            border-radius: 20px;
+        /* Hero Visual - Studio Preview */
+        .hero-visual { position: relative; animation: fadeInRight 0.8s ease 0.2s both; }
+        .studio-preview {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-xl);
             overflow: hidden;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+            border: 1px solid var(--gray-200);
         }
-
-        .hero-image {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .hero-image-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 2rem;
-            background: linear-gradient(transparent, rgba(10, 46, 90, 0.9));
-        }
-
-        .hero-image-overlay p {
-            color: var(--white);
-            font-weight: 600;
-            margin: 0;
-            font-size: 1rem;
-        }
-
-        .floating-card {
-            position: absolute;
-            background: var(--white);
-            border-radius: 16px;
-            padding: 16px 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .floating-card-1 {
-            top: 20px;
-            right: -30px;
+        .studio-topbar {
+            background: var(--navy);
+            padding: 12px 16px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
-
-        .floating-card-1 .icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--teal), var(--teal-light));
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-        }
-
-        .floating-card-1 .text {
-            font-weight: 700;
-            color: var(--navy);
-            font-size: 0.9rem;
-        }
-
-        .floating-card-1 .subtext {
+        .studio-dot { width: 10px; height: 10px; border-radius: 50%; }
+        .studio-dot.red { background: #FF5F57; }
+        .studio-dot.yellow { background: #FFBD2E; }
+        .studio-dot.green { background: #28C840; }
+        .studio-topbar span {
+            margin-left: auto;
+            color: var(--gray-400);
             font-size: 0.75rem;
-            color: #666;
+            font-weight: 500;
         }
-
-        .floating-card-2 {
-            bottom: 80px;
-            left: -40px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            animation-delay: 1s;
-        }
-
-        .floating-card-2 .icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--gold), var(--gold-light));
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-        }
-
-        /* Problem Section */
-        .problem {
-            padding: 6rem 2rem;
-            background: var(--white);
-        }
-
-        .section-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-tag {
-            display: inline-block;
-            background: rgba(10, 46, 90, 0.08);
-            color: var(--navy);
-            padding: 6px 20px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .section-header h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--navy);
-            margin-bottom: 1rem;
-        }
-
-        .section-header p {
-            font-size: 1.1rem;
-            color: #666;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .problem-grid {
+        .studio-body {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
+            grid-template-columns: 200px 1fr;
+            min-height: 320px;
         }
-
-        .problem-card {
-            background: var(--light-gray);
-            border-radius: 20px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s;
-            border: 2px solid transparent;
+        .studio-sidebar {
+            background: var(--gray-50);
+            padding: 16px 12px;
+            border-right: 1px solid var(--gray-200);
         }
-
-        .problem-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--gold);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-        }
-
-        .problem-icon {
-            width: 60px;
-            height: 60px;
-            margin: 0 auto 1.5rem;
-            background: linear-gradient(135deg, var(--navy), var(--navy-light));
-            border-radius: 16px;
+        .studio-sidebar-item {
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
+            gap: 8px;
+            padding: 10px 12px;
+            border-radius: 10px;
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: var(--gray-600);
+            margin-bottom: 4px;
+            cursor: pointer;
+            transition: var(--transition);
         }
-
-        .problem-card h3 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--navy);
-            margin-bottom: 0.75rem;
+        .studio-sidebar-item:hover { background: rgba(108,60,225,0.05); color: var(--primary); }
+        .studio-sidebar-item.active {
+            background: linear-gradient(135deg, rgba(108,60,225,0.1), rgba(108,60,225,0.05));
+            color: var(--primary);
+            font-weight: 600;
         }
-
-        .problem-card p {
+        .studio-sidebar-item i { width: 18px; text-align: center; font-size: 0.85rem; }
+        .studio-main { padding: 20px; }
+        .studio-main h4 {
             font-size: 0.9rem;
-            color: #666;
-            line-height: 1.6;
+            color: var(--navy);
+            margin-bottom: 12px;
         }
-
-        /* Solution Section */
-        .solution {
-            padding: 6rem 2rem;
-            background: var(--light-gray);
-        }
-
-        .solution-content {
+        .studio-outputs {
             display: grid;
             grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .studio-output-card {
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            padding: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .studio-output-card:hover { border-color: var(--primary); background: rgba(108,60,225,0.03); transform: translateY(-2px); }
+        .studio-output-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+        .studio-output-icon.slides { background: rgba(245,158,11,0.1); color: var(--accent); }
+        .studio-output-icon.quiz { background: rgba(244,63,94,0.1); color: var(--coral); }
+        .studio-output-icon.audio { background: rgba(108,60,225,0.1); color: var(--primary); }
+        .studio-output-icon.flash { background: rgba(20,184,166,0.1); color: var(--teal); }
+        .studio-output-icon.video { background: rgba(14,165,233,0.1); color: var(--sky); }
+        .studio-output-icon.report { background: rgba(71,85,105,0.1); color: var(--gray-600); }
+        .studio-output-card span { font-size: 0.78rem; font-weight: 600; color: var(--navy); }
+        .studio-output-card small { font-size: 0.68rem; color: var(--gray-400); display: block; }
+        .hero-float {
+            position: absolute;
+            background: white;
+            border-radius: 14px;
+            padding: 12px 16px;
+            box-shadow: var(--shadow-lg);
+            animation: float 3s ease-in-out infinite;
+        }
+        .hero-float-1 { top: 20px; right: -20px; animation-delay: 0s; }
+        .hero-float-2 { bottom: 40px; left: -30px; animation-delay: 1.5s; }
+        .hero-float .float-icon {
+            width: 32px; height: 32px; border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.9rem; margin-bottom: 6px;
+        }
+        .hero-float span { font-size: 0.75rem; font-weight: 700; color: var(--navy); }
+        .hero-float small { font-size: 0.65rem; color: var(--gray-400); display: block; }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Section Common */
+        .section { padding: 6rem 2rem; }
+        .section-container { max-width: 1300px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 4rem; }
+        .section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(108,60,225,0.08);
+            color: var(--primary);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+        .section-header p { font-size: 1.1rem; color: var(--gray-500); max-width: 650px; margin: 0 auto; }
+
+        /* All Primary Grades */
+        .grades-section { background: var(--gray-50); }
+        .grades-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+        .grade-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 1.5rem 1rem;
+            text-align: center;
+            border: 2px solid var(--gray-200);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        .grade-card:hover { border-color: var(--primary); transform: translateY(-5px); box-shadow: var(--shadow-md); }
+        .grade-card .grade-num {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0.8rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: white;
+        }
+        .grade-card:nth-child(1) .grade-num { background: linear-gradient(135deg, #F43F5E, #FB7185); }
+        .grade-card:nth-child(2) .grade-num { background: linear-gradient(135deg, #F59E0B, #FBBF24); }
+        .grade-card:nth-child(3) .grade-num { background: linear-gradient(135deg, #10B981, #34D399); }
+        .grade-card:nth-child(4) .grade-num { background: linear-gradient(135deg, #0EA5E9, #38BDF8); }
+        .grade-card:nth-child(5) .grade-num { background: linear-gradient(135deg, #8B5CF6, #A78BFA); }
+        .grade-card:nth-child(6) .grade-num { background: linear-gradient(135deg, #EC4899, #F472B6); }
+        .grade-card:nth-child(7) .grade-num { background: linear-gradient(135deg, #6C3CE1, #8B5CF6); }
+        .grade-card h4 { font-size: 0.85rem; color: var(--navy); margin-bottom: 0.3rem; }
+        .grade-card p { font-size: 0.72rem; color: var(--gray-400); }
+        .subjects-banner {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--gray-200);
+        }
+        .subjects-banner h3 {
+            font-size: 1.1rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .subjects-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+        .subject-tag {
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 500;
+            border: 1px solid var(--gray-200);
+            color: var(--gray-600);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        .subject-tag:hover { border-color: var(--primary); color: var(--primary); background: rgba(108,60,225,0.05); }
+
+        /* Teacher Studio Section */
+        .studio-section { background: white; }
+        .studio-showcase {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
             gap: 4rem;
             align-items: center;
         }
-
-        .solution-text h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--navy);
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
+        .studio-mockup {
+            background: var(--navy);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
         }
-
-        .solution-text h2 span {
-            color: var(--teal);
-        }
-
-        .solution-text > p {
-            font-size: 1.1rem;
-            color: #666;
-            margin-bottom: 2rem;
-        }
-
-        .solution-steps {
+        .studio-mockup-bar {
+            padding: 14px 18px;
             display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.05);
         }
-
-        .step {
+        .studio-mockup-body { padding: 20px; }
+        .studio-chat-area {
+            background: rgba(255,255,255,0.03);
+            border-radius: var(--radius);
+            padding: 20px;
+            min-height: 280px;
+            margin-bottom: 16px;
+        }
+        .chat-message {
             display: flex;
-            gap: 1rem;
+            gap: 10px;
+            margin-bottom: 16px;
             align-items: flex-start;
         }
-
-        .step-number {
+        .chat-avatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            flex-shrink: 0;
+        }
+        .chat-avatar.ai { background: linear-gradient(135deg, var(--primary), var(--teal)); color: white; }
+        .chat-avatar.user { background: var(--accent); color: white; }
+        .chat-bubble {
+            background: rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 12px 16px;
+            max-width: 80%;
+        }
+        .chat-bubble p { color: rgba(255,255,255,0.85); font-size: 0.8rem; line-height: 1.6; }
+        .chat-bubble.user-bubble { background: rgba(108,60,225,0.2); }
+        .studio-input-area {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        .studio-input {
+            flex: 1;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 12px 16px;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.82rem;
+        }
+        .studio-send-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border: none;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        .studio-info h2 {
+            font-size: 2.2rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+        .studio-info h2 span {
+            background: linear-gradient(135deg, var(--primary), var(--teal));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .studio-info > p { color: var(--gray-500); margin-bottom: 2rem; font-size: 1.05rem; line-height: 1.8; }
+        .studio-features-list { display: flex; flex-direction: column; gap: 1.2rem; }
+        .studio-feature-item {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+        }
+        .studio-feature-icon {
             width: 44px;
             height: 44px;
             min-width: 44px;
-            background: linear-gradient(135deg, var(--gold), var(--gold-light));
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-            color: var(--navy);
             font-size: 1.1rem;
         }
+        .studio-feature-icon.purple { background: rgba(108,60,225,0.1); color: var(--primary); }
+        .studio-feature-icon.teal { background: rgba(20,184,166,0.1); color: var(--teal); }
+        .studio-feature-icon.amber { background: rgba(245,158,11,0.1); color: var(--accent); }
+        .studio-feature-icon.coral { background: rgba(244,63,94,0.1); color: var(--coral); }
+        .studio-feature-item h4 { font-size: 0.95rem; color: var(--navy); margin-bottom: 0.2rem; }
+        .studio-feature-item p { font-size: 0.82rem; color: var(--gray-500); }
 
-        .step-content h4 {
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--navy);
-            margin-bottom: 0.25rem;
-        }
-
-        .step-content p {
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        .solution-visual {
-            position: relative;
-        }
-
-        .solution-mockup {
-            background: var(--navy);
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 20px 50px rgba(10, 46, 90, 0.2);
-        }
-
-        .mockup-header {
-            display: flex;
+        /* Share Section */
+        .share-section { background: var(--gray-50); }
+        .share-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
             align-items: center;
-            gap: 8px;
-            margin-bottom: 1.5rem;
         }
-
-        .mockup-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
+        .share-info h2 {
+            font-size: 2.2rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
         }
-
-        .mockup-dot.red { background: #FF5F57; }
-        .mockup-dot.yellow { background: #FFBD2E; }
-        .mockup-dot.green { background: #28C840; }
-
-        .mockup-body {
-            background: rgba(255,255,255,0.05);
-            border-radius: 12px;
-            padding: 1.5rem;
-        }
-
-        .mockup-upload {
-            border: 2px dashed rgba(255,255,255,0.2);
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .mockup-upload .upload-icon {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .mockup-upload p {
-            color: rgba(255,255,255,0.6);
-            font-size: 0.85rem;
-        }
-
-        .mockup-outputs {
+        .share-info h2 span { color: var(--teal); }
+        .share-info > p { color: var(--gray-500); margin-bottom: 2rem; font-size: 1.05rem; }
+        .content-types {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 0.75rem;
+            gap: 1rem;
         }
-
-        .mockup-output {
-            background: rgba(255,255,255,0.08);
+        .content-type {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px;
+            background: white;
+            border-radius: 14px;
+            border: 1px solid var(--gray-200);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        .content-type:hover { border-color: var(--primary); transform: translateY(-3px); box-shadow: var(--shadow-sm); }
+        .content-type-icon {
+            width: 40px;
+            height: 40px;
             border-radius: 10px;
-            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+        .content-type-icon.audio { background: rgba(108,60,225,0.1); color: var(--primary); }
+        .content-type-icon.video { background: rgba(14,165,233,0.1); color: var(--sky); }
+        .content-type-icon.slides { background: rgba(245,158,11,0.1); color: var(--accent); }
+        .content-type-icon.quiz { background: rgba(244,63,94,0.1); color: var(--coral); }
+        .content-type-icon.flash { background: rgba(20,184,166,0.1); color: var(--teal); }
+        .content-type-icon.report { background: rgba(71,85,105,0.1); color: var(--gray-600); }
+        .content-type span { font-size: 0.82rem; font-weight: 600; color: var(--navy); }
+        .content-type small { font-size: 0.7rem; color: var(--gray-400); display: block; }
+        .share-visual { position: relative; }
+        .share-mockup {
+            background: white;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-xl);
+            overflow: hidden;
+            border: 1px solid var(--gray-200);
+        }
+        .share-header {
+            background: linear-gradient(135deg, var(--primary), var(--teal));
+            padding: 20px;
+            color: white;
+        }
+        .share-header h4 { font-size: 0.95rem; margin-bottom: 4px; }
+        .share-header p { font-size: 0.75rem; opacity: 0.8; }
+        .share-body { padding: 20px; }
+        .share-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px;
+            background: var(--gray-50);
+            border-radius: 12px;
+            margin-bottom: 10px;
+            border: 1px solid var(--gray-200);
+        }
+        .share-group-avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: white;
+        }
+        .share-group:nth-child(1) .share-group-avatar { background: linear-gradient(135deg, var(--primary), var(--primary-light)); }
+        .share-group:nth-child(2) .share-group-avatar { background: linear-gradient(135deg, var(--teal), var(--teal-light)); }
+        .share-group:nth-child(3) .share-group-avatar { background: linear-gradient(135deg, var(--accent), var(--accent-light)); }
+        .share-group-info { flex: 1; }
+        .share-group-info span { font-size: 0.82rem; font-weight: 600; color: var(--navy); }
+        .share-group-info small { font-size: 0.7rem; color: var(--gray-400); display: block; }
+        .share-group-badge {
+            background: var(--primary);
+            color: white;
+            font-size: 0.65rem;
+            padding: 3px 8px;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+        .share-send-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 16px;
+            transition: var(--transition);
+        }
+        .share-send-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(108,60,225,0.3); }
+
+        /* Student App Section */
+        .student-section {
+            background: linear-gradient(180deg, var(--navy) 0%, var(--slate) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .student-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%238B5CF6' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .student-section .section-header h2 { color: white; }
+        .student-section .section-header p { color: rgba(255,255,255,0.6); }
+        .student-section .section-tag { background: rgba(108,60,225,0.2); color: var(--primary-light); }
+        .student-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        .student-features {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+        .student-feature {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius);
+            padding: 1.2rem;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            transition: var(--transition);
+        }
+        .student-feature:hover { border-color: rgba(108,60,225,0.4); transform: translateX(5px); }
+        .student-feature-icon {
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+        .student-feature h4 { color: white; font-size: 0.9rem; margin-bottom: 0.2rem; }
+        .student-feature p { color: rgba(255,255,255,0.5); font-size: 0.78rem; }
+
+        /* Phone Mockup */
+        .phone-mockup {
+            width: 280px;
+            height: 560px;
+            background: #1a1a2e;
+            border-radius: 40px;
+            border: 3px solid #333;
+            padding: 12px;
+            margin: 0 auto;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            position: relative;
+        }
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, #f8f7ff, #ffffff);
+            border-radius: 30px;
+            overflow: hidden;
+            position: relative;
+        }
+        .phone-notch {
+            width: 120px;
+            height: 24px;
+            background: #1a1a2e;
+            border-radius: 0 0 16px 16px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+        .phone-app-header {
+            background: linear-gradient(135deg, var(--primary), var(--teal));
+            padding: 14px 16px 18px;
+            color: white;
+            text-align: center;
+        }
+        .phone-app-header h5 { font-size: 0.82rem; font-weight: 600; }
+        .phone-app-header small { font-size: 0.65rem; opacity: 0.8; }
+        .phone-app-body { padding: 12px; }
+        .phone-welcome {
+            background: linear-gradient(135deg, rgba(108,60,225,0.08), rgba(20,184,166,0.08));
+            border-radius: 12px;
+            padding: 12px;
+            margin-bottom: 12px;
+        }
+        .phone-welcome p { font-size: 0.72rem; color: var(--navy); font-weight: 600; }
+        .phone-welcome small { font-size: 0.62rem; color: var(--gray-500); }
+        .phone-tasks { display: flex; flex-direction: column; gap: 8px; }
+        .phone-task {
+            background: white;
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            padding: 10px 12px;
             display: flex;
             align-items: center;
             gap: 10px;
         }
-
-        .mockup-output .out-icon {
+        .phone-task-icon {
             width: 32px;
             height: 32px;
             border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.9rem;
-        }
-
-        .mockup-output .out-icon.chat { background: var(--teal); }
-        .mockup-output .out-icon.slides { background: var(--gold); }
-        .mockup-output .out-icon.quiz { background: #E74C3C; }
-        .mockup-output .out-icon.audio { background: #9B59B6; }
-
-        .mockup-output span {
-            color: rgba(255,255,255,0.8);
             font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+        .phone-task-icon.quiz { background: rgba(244,63,94,0.1); color: var(--coral); }
+        .phone-task-icon.audio { background: rgba(108,60,225,0.1); color: var(--primary); }
+        .phone-task-icon.flash { background: rgba(20,184,166,0.1); color: var(--teal); }
+        .phone-task-icon.video { background: rgba(14,165,233,0.1); color: var(--sky); }
+        .phone-task span { font-size: 0.72rem; font-weight: 600; color: var(--navy); }
+        .phone-task small { font-size: 0.6rem; color: var(--gray-400); display: block; }
+        .phone-task-status {
+            margin-left: auto;
+            font-size: 0.6rem;
+            padding: 3px 8px;
+            border-radius: 6px;
             font-weight: 600;
         }
+        .phone-task-status.done { background: rgba(16,185,129,0.1); color: #10B981; }
+        .phone-task-status.pending { background: rgba(245,158,11,0.1); color: var(--accent); }
+        .phone-task-status.new { background: rgba(108,60,225,0.1); color: var(--primary); }
 
-        /* Features Section */
-        .features {
-            padding: 6rem 2rem;
-            background: var(--white);
+        .student-app-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
         }
+        .student-app-info .student-feature:hover { transform: translateX(-5px); }
 
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .feature-card {
-            background: var(--white);
-            border: 2px solid var(--light-gray);
-            border-radius: 20px;
-            padding: 2.5rem 2rem;
-            transition: all 0.3s;
+        /* Mobile App Download */
+        .app-download {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            padding: 5rem 2rem;
+            text-align: center;
             position: relative;
             overflow: hidden;
         }
+        .app-download::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .app-download-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        .app-download h2 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .app-download p {
+            color: rgba(255,255,255,0.8);
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+        }
+        .app-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        .app-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,255,255,0.3);
+            padding: 14px 28px;
+            border-radius: 14px;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .app-btn:hover { background: rgba(255,255,255,0.2); border-color: white; transform: translateY(-3px); }
+        .app-btn i { font-size: 1.8rem; }
+        .app-btn-text { text-align: left; }
+        .app-btn-text small { font-size: 0.7rem; opacity: 0.8; display: block; }
+        .app-btn-text span { font-size: 1rem; font-weight: 700; }
+        .app-features-row {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .app-feature-tag {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: rgba(255,255,255,0.8);
+            font-size: 0.85rem;
+        }
+        .app-feature-tag i { color: var(--accent-light); }
 
+        /* Features Grid */
+        .features-section { background: white; }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        .feature-card {
+            background: var(--gray-50);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            border: 1px solid var(--gray-200);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
         .feature-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--navy), var(--teal));
-            transform: scaleX(0);
-            transition: transform 0.3s;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--teal));
+            opacity: 0;
+            transition: var(--transition);
         }
-
-        .feature-card:hover {
-            border-color: var(--teal);
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
-        }
-
-        .feature-card:hover::before {
-            transform: scaleX(1);
-        }
-
+        .feature-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: transparent; }
+        .feature-card:hover::before { opacity: 1; }
         .feature-icon {
-            width: 56px;
-            height: 56px;
+            width: 52px;
+            height: 52px;
             border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.4rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            margin-bottom: 1.2rem;
         }
-
-        .feature-icon.navy { background: rgba(10, 46, 90, 0.1); }
-        .feature-icon.gold { background: rgba(212, 175, 55, 0.15); }
-        .feature-icon.teal { background: rgba(0, 139, 139, 0.1); }
-
-        .feature-card h3 {
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: var(--navy);
-            margin-bottom: 0.75rem;
-        }
-
-        .feature-card p {
-            font-size: 0.9rem;
-            color: #666;
-            line-height: 1.7;
-        }
+        .feature-icon.purple { background: rgba(108,60,225,0.1); color: var(--primary); }
+        .feature-icon.teal { background: rgba(20,184,166,0.1); color: var(--teal); }
+        .feature-icon.amber { background: rgba(245,158,11,0.1); color: var(--accent); }
+        .feature-icon.coral { background: rgba(244,63,94,0.1); color: var(--coral); }
+        .feature-icon.sky { background: rgba(14,165,233,0.1); color: var(--sky); }
+        .feature-icon.green { background: rgba(16,185,129,0.1); color: #10B981; }
+        .feature-card h3 { font-size: 1.05rem; color: var(--navy); margin-bottom: 0.5rem; }
+        .feature-card p { font-size: 0.85rem; color: var(--gray-500); line-height: 1.7; }
 
         /* How It Works */
-        .how-it-works {
-            padding: 6rem 2rem;
-            background: var(--navy);
+        .how-section { background: var(--gray-50); }
+        .how-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
             position: relative;
-            overflow: hidden;
         }
-
-        .how-it-works::before {
+        .how-steps::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url("image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            top: 50px;
+            left: 10%;
+            right: 10%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--teal), var(--accent));
+            border-radius: 2px;
         }
-
-        .how-it-works .section-tag {
-            background: rgba(212, 175, 55, 0.15);
-            color: var(--gold);
-        }
-
-        .how-it-works .section-header h2 {
-            color: var(--white);
-        }
-
-        .how-it-works .section-header p {
-            color: rgba(255,255,255,0.6);
-        }
-
-        .steps-timeline {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 3rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .timeline-step {
-            text-align: center;
-            position: relative;
-        }
-
-        .timeline-step::after {
-            content: '→';
-            position: absolute;
-            right: -2rem;
-            top: 40px;
-            color: var(--gold);
-            font-size: 2rem;
-            font-weight: 700;
-        }
-
-        .timeline-step:last-child::after {
-            display: none;
-        }
-
-        .timeline-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 1.5rem;
-            background: linear-gradient(135deg, var(--gold), var(--gold-light));
-            border-radius: 20px;
+        .how-step { text-align: center; position: relative; z-index: 1; }
+        .how-step-num {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: white;
+            border: 3px solid var(--primary);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
-        }
-
-        .timeline-step h3 {
-            color: var(--white);
-            font-size: 1.2rem;
+            margin: 0 auto 1.2rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
             font-weight: 700;
-            margin-bottom: 0.75rem;
+            color: var(--primary);
+            box-shadow: var(--shadow-sm);
         }
+        .how-step h4 { font-size: 1rem; color: var(--navy); margin-bottom: 0.4rem; }
+        .how-step p { font-size: 0.82rem; color: var(--gray-500); line-height: 1.6; }
 
-        .timeline-step p {
-            color: rgba(255,255,255,0.6);
-            font-size: 0.9rem;
-            line-height: 1.7;
-        }
-
-        /* Pricing Section */
-        .pricing {
-            padding: 6rem 2rem;
-            background: var(--light-gray);
-        }
-
+        /* Pricing */
+        .pricing-section { background: white; }
         .pricing-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -827,367 +1047,174 @@
             max-width: 1000px;
             margin: 0 auto;
         }
-
         .pricing-card {
-            background: var(--white);
-            border-radius: 24px;
+            background: var(--gray-50);
+            border-radius: var(--radius-lg);
             padding: 2.5rem 2rem;
             text-align: center;
-            border: 2px solid var(--light-gray);
-            transition: all 0.3s;
+            border: 2px solid var(--gray-200);
+            transition: var(--transition);
             position: relative;
         }
-
         .pricing-card.featured {
-            border-color: var(--gold);
-            transform: scale(1.05);
-            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.15);
+            border-color: var(--primary);
+            background: white;
+            transform: scale(1.03);
+            box-shadow: var(--shadow-lg);
         }
-
-        .pricing-card.featured .pricing-badge {
-            display: block;
-        }
-
+        .pricing-card.featured .pricing-badge { display: block; }
         .pricing-badge {
             display: none;
             position: absolute;
-            top: -14px;
+            top: -12px;
             left: 50%;
             transform: translateX(-50%);
-            background: var(--gold);
-            color: var(--navy);
-            padding: 6px 20px;
-            border-radius: 50px;
-            font-size: 0.8rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: 5px 18px;
+            border-radius: 20px;
+            font-size: 0.75rem;
             font-weight: 700;
-            font-family: 'Montserrat', sans-serif;
         }
-
-        .pricing-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-        }
-
-        .pricing-card.featured:hover {
-            transform: scale(1.05) translateY(-5px);
-        }
-
-        .pricing-name {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--navy);
-            margin-bottom: 0.5rem;
-        }
-
-        .pricing-desc {
-            font-size: 0.85rem;
-            color: #999;
-            margin-bottom: 1.5rem;
-        }
-
-        .pricing-price {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 900;
-            color: var(--navy);
-            margin-bottom: 0.25rem;
-        }
-
-        .pricing-price span {
-            font-size: 1rem;
-            font-weight: 500;
-            color: #999;
-        }
-
-        .pricing-period {
-            font-size: 0.85rem;
-            color: #999;
-            margin-bottom: 2rem;
-        }
-
-        .pricing-features {
-            list-style: none;
-            text-align: left;
-            margin-bottom: 2rem;
-        }
-
+        .pricing-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+        .pricing-card.featured:hover { transform: scale(1.03) translateY(-5px); }
+        .pricing-name { font-size: 1.2rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
+        .pricing-desc { font-size: 0.82rem; color: var(--gray-400); margin-bottom: 1.5rem; }
+        .pricing-price { font-size: 2.5rem; font-weight: 700; color: var(--navy); margin-bottom: 0.25rem; font-family: 'Space Grotesk', sans-serif; }
+        .pricing-price span { font-size: 1rem; font-weight: 500; color: var(--gray-400); }
+        .pricing-period { font-size: 0.82rem; color: var(--gray-400); margin-bottom: 2rem; }
+        .pricing-features { list-style: none; text-align: left; margin-bottom: 2rem; }
         .pricing-features li {
             padding: 0.5rem 0;
-            font-size: 0.9rem;
-            color: #555;
+            font-size: 0.85rem;
+            color: var(--gray-600);
             display: flex;
             align-items: center;
             gap: 10px;
         }
-
-        .pricing-features li::before {
-            content: '✓';
-            color: var(--teal);
-            font-weight: 700;
-        }
-
+        .pricing-features li::before { content: '✓'; color: var(--teal); font-weight: 700; font-size: 0.9rem; }
         .pricing-btn {
             display: block;
             width: 100%;
             padding: 14px;
             border-radius: 12px;
-            font-weight: 700;
-            font-size: 0.95rem;
+            font-weight: 600;
+            font-size: 0.9rem;
             text-decoration: none;
-            transition: all 0.3s;
-            font-family: 'Montserrat', sans-serif;
+            transition: var(--transition);
             cursor: pointer;
             border: none;
+            font-family: inherit;
         }
-
-        .pricing-btn.primary {
-            background: var(--navy);
-            color: var(--white);
-        }
-
-        .pricing-btn.primary:hover {
-            background: var(--navy-light);
-            transform: translateY(-2px);
-        }
-
-        .pricing-btn.gold {
-            background: var(--gold);
-            color: var(--navy);
-        }
-
-        .pricing-btn.gold:hover {
-            background: var(--gold-light);
-            transform: translateY(-2px);
-        }
+        .pricing-btn.primary { background: var(--navy); color: white; }
+        .pricing-btn.primary:hover { background: var(--primary); transform: translateY(-2px); }
+        .pricing-btn.featured-btn { background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: white; box-shadow: 0 4px 15px rgba(108,60,225,0.3); }
+        .pricing-btn.featured-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(108,60,225,0.4); }
 
         /* Testimonials */
-        .testimonials {
-            padding: 6rem 2rem;
-            background: var(--white);
-        }
-
+        .testimonials-section { background: var(--gray-50); }
         .testimonial-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
+            gap: 1.5rem;
         }
-
         .testimonial-card {
-            background: var(--light-gray);
-            border-radius: 20px;
+            background: white;
+            border-radius: var(--radius-lg);
             padding: 2rem;
-            position: relative;
+            border: 1px solid var(--gray-200);
+            transition: var(--transition);
         }
-
-        .testimonial-card::before {
-            content: '"';
-            font-family: 'Montserrat', sans-serif;
-            font-size: 4rem;
-            font-weight: 900;
-            color: var(--gold);
-            opacity: 0.3;
-            position: absolute;
-            top: 10px;
-            left: 20px;
-            line-height: 1;
-        }
-
-        .testimonial-text {
-            font-size: 0.95rem;
-            color: #555;
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
+        .testimonial-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+        .testimonial-stars { color: var(--accent); margin-bottom: 1rem; font-size: 0.9rem; }
+        .testimonial-text { font-size: 0.9rem; color: var(--gray-600); line-height: 1.7; margin-bottom: 1.5rem; font-style: italic; }
+        .testimonial-author { display: flex; align-items: center; gap: 12px; }
         .testimonial-avatar {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--navy), var(--teal));
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--white);
+            color: white;
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 0.85rem;
         }
+        .testimonial-card:nth-child(1) .testimonial-avatar { background: linear-gradient(135deg, var(--primary), var(--primary-light)); }
+        .testimonial-card:nth-child(2) .testimonial-avatar { background: linear-gradient(135deg, var(--teal), var(--teal-light)); }
+        .testimonial-card:nth-child(3) .testimonial-avatar { background: linear-gradient(135deg, var(--accent), var(--accent-light)); }
+        .testimonial-name { font-weight: 600; color: var(--navy); font-size: 0.9rem; }
+        .testimonial-role { font-size: 0.75rem; color: var(--gray-400); }
 
-        .testimonial-name {
-            font-weight: 700;
-            color: var(--navy);
-            font-size: 0.95rem;
-        }
-
-        .testimonial-role {
-            font-size: 0.8rem;
-            color: #999;
-        }
-
-        /* CTA Section */
-        .cta {
-            padding: 6rem 2rem;
-            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+        /* CTA */
+        .cta-section {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--primary-dark) 100%);
+            padding: 5rem 2rem;
             text-align: center;
             position: relative;
             overflow: hidden;
         }
-
-        .cta::before {
+        .cta-section::before {
             content: '';
             position: absolute;
             top: -50%;
-            left: -20%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(108,60,225,0.2) 0%, transparent 70%);
             border-radius: 50%;
         }
-
-        .cta-container {
-            max-width: 700px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .cta h2 {
-            font-size: 2.5rem;
-            font-weight: 900;
-            color: var(--white);
-            margin-bottom: 1rem;
-        }
-
-        .cta h2 span {
-            color: var(--gold);
-        }
-
-        .cta p {
-            color: rgba(255,255,255,0.7);
-            font-size: 1.1rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .cta-note {
-            margin-top: 1.5rem;
-            font-size: 0.85rem;
-            color: rgba(255,255,255,0.5);
-        }
+        .cta-container { max-width: 700px; margin: 0 auto; position: relative; z-index: 1; }
+        .cta-section h2 { color: white; font-size: 2.5rem; margin-bottom: 1rem; }
+        .cta-section p { color: rgba(255,255,255,0.7); font-size: 1.1rem; margin-bottom: 2.5rem; }
+        .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .cta-note { margin-top: 1.5rem; font-size: 0.82rem; color: rgba(255,255,255,0.5); }
 
         /* Footer */
         .footer {
-            background: #061D38;
+            background: var(--navy);
             padding: 4rem 2rem 2rem;
         }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
+        .footer-container { max-width: 1300px; margin: 0 auto; }
         .footer-grid {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 1fr;
             gap: 3rem;
             margin-bottom: 3rem;
         }
-
-        .footer-brand .footer-logo {
-            display: flex;
+        .footer-brand p { color: rgba(255,255,255,0.5); font-size: 0.85rem; line-height: 1.7; margin-top: 1rem; }
+        .footer-eco-badge {
+            display: inline-flex;
             align-items: center;
-            gap: 10px;
-            margin-bottom: 1rem;
+            gap: 6px;
+            background: rgba(20,184,166,0.1);
+            border: 1px solid rgba(20,184,166,0.2);
+            padding: 6px 12px;
+            border-radius: 8px;
+            color: var(--teal-light);
+            font-size: 0.72rem;
+            font-weight: 600;
+            margin-top: 1rem;
         }
-
-        .footer-brand .footer-logo-icon {
-            width: 36px;
-            height: 36px;
-        }
-
-        .footer-brand .footer-logo-text {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-            font-size: 1.2rem;
-            color: var(--white);
-        }
-
-        .footer-brand .footer-logo-text span {
-            color: var(--gold);
-        }
-
-        .footer-brand p {
-            color: rgba(255,255,255,0.5);
-            font-size: 0.9rem;
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-social {
-            display: flex;
-            gap: 10px;
-        }
-
+        .footer-social { display: flex; gap: 10px; margin-top: 1.5rem; }
         .footer-social a {
-            width: 40px;
-            height: 40px;
+            width: 38px;
+            height: 38px;
             border-radius: 10px;
-            background: rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.05);
             display: flex;
             align-items: center;
             justify-content: center;
             color: rgba(255,255,255,0.6);
             text-decoration: none;
-            transition: all 0.3s;
-            font-size: 1.1rem;
+            transition: var(--transition);
         }
-
-        .footer-social a:hover {
-            background: var(--gold);
-            color: var(--navy);
-        }
-
-        .footer-column h4 {
-            color: var(--white);
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-column ul {
-            list-style: none;
-        }
-
-        .footer-column ul li {
-            margin-bottom: 0.75rem;
-        }
-
-        .footer-column ul a {
-            color: rgba(255,255,255,0.5);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s;
-        }
-
-        .footer-column ul a:hover {
-            color: var(--gold);
-        }
-
+        .footer-social a:hover { background: var(--primary); color: white; transform: translateY(-3px); }
+        .footer-column h4 { color: white; font-size: 0.95rem; margin-bottom: 1.2rem; }
+        .footer-column ul { list-style: none; }
+        .footer-column ul li { margin-bottom: 0.6rem; }
+        .footer-column ul a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.85rem; transition: var(--transition); }
+        .footer-column ul a:hover { color: var(--teal-light); }
         .footer-bottom {
             border-top: 1px solid rgba(255,255,255,0.08);
             padding-top: 2rem;
@@ -1197,178 +1224,54 @@
             flex-wrap: wrap;
             gap: 1rem;
         }
+        .footer-bottom p { color: rgba(255,255,255,0.4); font-size: 0.82rem; }
+        .footer-bottom a { color: rgba(255,255,255,0.4); text-decoration: none; }
+        .footer-bottom a:hover { color: var(--teal-light); }
 
-        .footer-bottom p {
-            color: rgba(255,255,255,0.4);
-            font-size: 0.85rem;
-        }
-
-        .footer-bottom a {
-            color: rgba(255,255,255,0.4);
-            text-decoration: none;
-            font-size: 0.85rem;
-        }
-
-        .footer-bottom a:hover {
-            color: var(--gold);
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInRight {
-            from { opacity: 0; transform: translateX(30px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(1.5); }
-        }
-
+        /* Fade-in */
         .fade-in {
             opacity: 0;
             transform: translateY(20px);
             transition: all 0.6s ease;
         }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
 
         /* Responsive */
         @media (max-width: 1024px) {
-            .hero-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero p {
-                margin: 0 auto 2rem;
-            }
-
-            .hero-buttons {
-                justify-content: center;
-            }
-
-            .hero-stats {
-                justify-content: center;
-            }
-
-            .hero-visual {
-                max-width: 500px;
-                margin: 0 auto;
-            }
-
-            .floating-card-1 {
-                right: 10px;
-            }
-
-            .floating-card-2 {
-                left: 10px;
-            }
-
-            .problem-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .solution-content {
-                grid-template-columns: 1fr;
-            }
-
-            .features-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .steps-timeline {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .timeline-step::after {
-                display: none;
-            }
-
-            .pricing-grid {
-                grid-template-columns: 1fr;
-                max-width: 400px;
-            }
-
-            .pricing-card.featured {
-                transform: none;
-            }
-
-            .pricing-card.featured:hover {
-                transform: translateY(-5px);
-            }
-
-            .testimonial-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-            }
+            .hero-container { grid-template-columns: 1fr; text-align: center; }
+            .hero p { margin: 0 auto 2rem; }
+            .hero-buttons { justify-content: center; }
+            .hero-stats { justify-content: center; }
+            .hero-visual { max-width: 600px; margin: 0 auto; }
+            .hero-float { display: none; }
+            .grades-grid { grid-template-columns: repeat(4, 1fr); }
+            .studio-showcase { grid-template-columns: 1fr; }
+            .share-showcase { grid-template-columns: 1fr; }
+            .student-showcase { grid-template-columns: 1fr; }
+            .phone-mockup { margin: 2rem auto; }
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+            .how-steps { grid-template-columns: repeat(2, 1fr); }
+            .how-steps::before { display: none; }
+            .pricing-grid { grid-template-columns: 1fr; max-width: 400px; }
+            .pricing-card.featured { transform: none; }
+            .testimonial-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
         }
-
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 70px;
-                left: 0;
-                right: 0;
-                background: var(--navy);
-                flex-direction: column;
-                padding: 2rem;
-                gap: 1.5rem;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .mobile-toggle {
-                display: flex;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .section-header h2 {
-                font-size: 1.8rem;
-            }
-
-            .problem-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .cta h2 {
-                font-size: 1.8rem;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-            }
+            .nav-links { display: none; position: absolute; top: 70px; left: 0; right: 0; background: white; flex-direction: column; padding: 2rem; gap: 1rem; box-shadow: var(--shadow-lg); }
+            .nav-links.active { display: flex; }
+            .mobile-toggle { display: block; }
+            .hero h1 { font-size: 2.2rem; }
+            .section-header h2 { font-size: 1.8rem; }
+            .grades-grid { grid-template-columns: repeat(3, 1fr); }
+            .studio-body { grid-template-columns: 1fr; }
+            .studio-sidebar { display: none; }
+            .content-types { grid-template-columns: 1fr; }
+            .features-grid { grid-template-columns: 1fr; }
+            .how-steps { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .app-download h2 { font-size: 1.8rem; }
+            .cta-section h2 { font-size: 1.8rem; }
         }
     </style>
 </head>
@@ -1378,38 +1281,18 @@
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <a href="#" class="nav-logo">
-                <svg class="nav-logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M5 8C5 8 8 6 20 6C32 6 35 8 35 8V32C35 32 32 34 20 34C8 34 5 32 5 32V8Z" fill="#0A2E5A" stroke="#0A2E5A" stroke-width="1.5"/>
-                    <path d="M20 6V34" stroke="#0A2E5A" stroke-width="1.5"/>
-                    <path d="M5 8C5 8 8 6 20 6" stroke="#008B8B" stroke-width="1.5"/>
-                    <path d="M35 8C35 8 32 6 20 6" stroke="#008B8B" stroke-width="1.5"/>
-                    <circle cx="12" cy="14" r="1.5" fill="#D4AF37"/>
-                    <circle cx="16" cy="10" r="1.5" fill="#D4AF37"/>
-                    <circle cx="24" cy="10" r="1.5" fill="#D4AF37"/>
-                    <circle cx="28" cy="14" r="1.5" fill="#D4AF37"/>
-                    <circle cx="14" cy="20" r="1.5" fill="#D4AF37"/>
-                    <circle cx="26" cy="20" r="1.5" fill="#D4AF37"/>
-                    <circle cx="12" cy="26" r="1.5" fill="#D4AF37"/>
-                    <circle cx="28" cy="26" r="1.5" fill="#D4AF37"/>
-                    <path d="M12 14L16 10M16 10L24 10M24 10L28 14" stroke="#0A2E5A" stroke-width="1"/>
-                    <path d="M14 20L12 14M26 20L28 14" stroke="#0A2E5A" stroke-width="1"/>
-                    <path d="M12 26L14 20M28 26L26 20" stroke="#0A2E5A" stroke-width="1"/>
-                    <path d="M16 10L14 20M24 10L26 20" stroke="#0A2E5A" stroke-width="1"/>
-                </svg>
+                <div class="nav-logo-icon"><i class="fas fa-graduation-cap"></i></div>
                 <span class="nav-logo-text">Fundisa <span>AI</span></span>
             </a>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#problem">Problem</a></li>
-                <li><a href="#solution">Solution</a></li>
+                <li><a href="#grades">Grades</a></li>
+                <li><a href="#studio">Teacher Studio</a></li>
+                <li><a href="#student-app">Student App</a></li>
                 <li><a href="#features">Features</a></li>
                 <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#contact" class="nav-cta">Start Free Pilot</a></li>
             </ul>
-            <div class="mobile-toggle" id="mobileToggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <button class="mobile-toggle" id="mobileToggle"><i class="fas fa-bars"></i></button>
         </div>
     </nav>
 
@@ -1418,282 +1301,600 @@
         <div class="hero-container">
             <div class="hero-content">
                 <div class="hero-badge">
-                    <span class="pulse"></span>
-                    Now piloting in South African schools
+                    <span class="dot"></span>
+                    Now for ALL Primary Grades (R–7)
                 </div>
-                <h1>AI That Helps SA Teachers <span class="highlight">Teach</span> — Not Admin</h1>
-                <p>Fundisa AI is a no-code platform that turns CAPS documents into chatbots, slides, quizzes, and audio lessons — so Foundation Phase teachers save 5+ hours every week and focus on what matters: teaching.</p>
+                <h1>AI Teaching Studio for <span class="gradient-text">Every Primary Classroom</span></h1>
+                <p>Upload CAPS content, generate lessons, quizzes, flashcards & audio — then share directly to your learners' app. Like NotebookLM, built for SA teachers & kids.</p>
                 <div class="hero-buttons">
-                    <a href="#contact" class="btn-primary">
-                        Start Free Pilot →
+                    <a href="#contact" class="btn-hero-primary">
+                        <i class="fas fa-rocket"></i> Start Free Pilot
                     </a>
-                    <a href="#solution" class="btn-secondary">
-                        ▶ Watch Demo
+                    <a href="#studio" class="btn-hero-secondary">
+                        <i class="fas fa-play-circle"></i> See Teacher Studio
                     </a>
                 </div>
                 <div class="hero-stats">
                     <div class="stat-item">
-                        <div class="stat-number">70%</div>
-                        <div class="stat-label">Admin time reduced</div>
+                        <div class="stat-number">7</div>
+                        <div class="stat-label">All Primary Grades</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-number">5+</div>
-                        <div class="stat-label">Hours saved weekly</div>
+                        <div class="stat-number">6+</div>
+                        <div class="stat-label">Content Types</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-number">100%</div>
-                        <div class="stat-label">CAPS-aligned</div>
+                        <div class="stat-number">11</div>
+                        <div class="stat-label">SA Languages</div>
                     </div>
                 </div>
             </div>
             <div class="hero-visual">
-                <div class="hero-image-container">
-                    <img src="https://image.qwenlm.ai/public_source/de27e999-b5b1-485a-af0b-2efee96040af/1054ae5d1-204b-4b36-929b-dae4de012b5d.png" alt="South African classroom with engaged learners" class="hero-image">
-                    <div class="hero-image-overlay">
-                        <p>🇦 Built for SA teachers, by those who understand</p>
+                <div class="studio-preview">
+                    <div class="studio-topbar">
+                        <div class="studio-dot red"></div>
+                        <div class="studio-dot yellow"></div>
+                        <div class="studio-dot green"></div>
+                        <span>Fundisa AI Studio — Grade 5 Natural Sciences</span>
+                    </div>
+                    <div class="studio-body">
+                        <div class="studio-sidebar">
+                            <div class="studio-sidebar-item active"><i class="fas fa-wand-magic-sparkles"></i> Generate</div>
+                            <div class="studio-sidebar-item"><i class="fas fa-folder-open"></i> My Library</div>
+                            <div class="studio-sidebar-item"><i class="fas fa-users"></i> Class Groups</div>
+                            <div class="studio-sidebar-item"><i class="fas fa-chart-bar"></i> Analytics</div>
+                            <div class="studio-sidebar-item"><i class="fas fa-paper-plane"></i> Share</div>
+                        </div>
+                        <div class="studio-main">
+                            <h4>📄 Ecosystems & Food Chains — Generate Materials</h4>
+                            <div class="studio-outputs">
+                                <div class="studio-output-card">
+                                    <div class="studio-output-icon slides"><i class="fas fa-presentation-screen"></i></div>
+                                    <div><span>Slide Deck</span><small>12 slides ready</small></div>
+                                </div>
+                                <div class="studio-output-card">
+                                    <div class="studio-output-icon quiz"><i class="fas fa-question-circle"></i></div>
+                                    <div><span>Quiz (20 Qs)</span><small>Multiple choice</small></div>
+                                </div>
+                                <div class="studio-output-card">
+                                    <div class="studio-output-icon audio"><i class="fas fa-headphones"></i></div>
+                                    <div><span>Audio Lesson</span><small>8 min • isiZulu</small></div>
+                                </div>
+                                <div class="studio-output-card">
+                                    <div class="studio-output-icon flash"><i class="fas fa-clone"></i></div>
+                                    <div><span>Flashcards</span><small>15 cards</small></div>
+                                </div>
+                                <div class="studio-output-card">
+                                    <div class="studio-output-icon video"><i class="fas fa-video"></i></div>
+                                    <div><span>Video Summary</span><small>3 min explainer</small></div>
+                                </div>
+                                <div class="studio-output-card">
+                                    <div class="studio-output-icon report"><i class="fas fa-file-alt"></i></div>
+                                    <div><span>Study Notes</span><small>PDF download</small></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="floating-card floating-card-1">
-                    <div class="icon">⏱️</div>
-                    <div>
-                        <div class="text">5+ hours saved</div>
-                        <div class="subtext">per teacher weekly</div>
-                    </div>
+                <div class="hero-float hero-float-1">
+                    <div class="float-icon" style="background: rgba(20,184,166,0.1); color: var(--teal);"><i class="fas fa-share-alt"></i></div>
+                    <span>Shared to 32 learners</span>
+                    <small>Grade 5A • Just now</small>
                 </div>
-                <div class="floating-card floating-card-2">
-                    <div class="icon"></div>
-                    <div>
-                        <div class="text">CAPS-aligned</div>
-                        <div class="subtext">all outputs</div>
-                    </div>
+                <div class="hero-float hero-float-2">
+                    <div class="float-icon" style="background: rgba(245,158,11,0.1); color: var(--accent);"><i class="fas fa-check-circle"></i></div>
+                    <span>28/32 completed quiz</span>
+                    <small>Avg score: 78%</small>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Problem Section -->
-    <section class="problem" id="problem">
+    <!-- All Primary Grades Section -->
+    <section class="section grades-section" id="grades">
         <div class="section-container">
             <div class="section-header fade-in">
-                <span class="section-tag">The Problem</span>
-                <h2>Why SA Teachers Need AI — Now</h2>
-                <p>South African primary education faces systemic challenges that technology can help solve.</p>
+                <span class="section-tag"><i class="fas fa-layer-group"></i> All Primary Grades</span>
+                <h2>From Grade R to Grade 7</h2>
+                <p>Fundisa AI covers the entire primary school curriculum — Foundation Phase, Intermediate Phase, and Senior Phase</p>
             </div>
-            <div class="problem-grid">
-                <div class="problem-card fade-in">
-                    <div class="problem-icon">📊</div>
-                    <h3>Overwhelming Ratios</h3>
-                    <p>Teacher-learner ratios unchanged since apartheid — often 1:35+ in public schools, leaving learners underserved.</p>
+            <div class="grades-grid fade-in">
+                <div class="grade-card">
+                    <div class="grade-num">R</div>
+                    <h4>Grade R</h4>
+                    <p>Reception Year</p>
                 </div>
-                <div class="problem-card fade-in">
-                    <div class="problem-icon">📝</div>
-                    <h3>Admin Overload</h3>
-                    <p>Administrative tasks consume ~60% of teacher time, leaving less for lesson prep, feedback, and pastoral care.</p>
+                <div class="grade-card">
+                    <div class="grade-num">1</div>
+                    <h4>Grade 1</h4>
+                    <p>Foundation Phase</p>
                 </div>
-                <div class="problem-card fade-in">
-                    <div class="problem-icon">📖</div>
-                    <h3>CAPS Complexity</h3>
-                    <p>Meeting CAPS requirements while addressing diverse learner needs creates complex planning challenges.</p>
+                <div class="grade-card">
+                    <div class="grade-num">2</div>
+                    <h4>Grade 2</h4>
+                    <p>Foundation Phase</p>
                 </div>
-                <div class="problem-card fade-in">
-                    <div class="problem-icon">💻</div>
-                    <h3>Limited Tech Access</h3>
-                    <p>Good EdTech tools exist, but most aren't accessible, contextual, or designed for under-resourced schools.</p>
+                <div class="grade-card">
+                    <div class="grade-num">3</div>
+                    <h4>Grade 3</h4>
+                    <p>Foundation Phase</p>
+                </div>
+                <div class="grade-card">
+                    <div class="grade-num">4</div>
+                    <h4>Grade 4</h4>
+                    <p>Intermediate Phase</p>
+                </div>
+                <div class="grade-card">
+                    <div class="grade-num">5</div>
+                    <h4>Grade 5</h4>
+                    <p>Intermediate Phase</p>
+                </div>
+                <div class="grade-card">
+                    <div class="grade-num">6</div>
+                    <h4>Grade 6</h4>
+                    <p>Senior Phase</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Solution Section -->
-    <section class="solution" id="solution">
-        <div class="section-container">
-            <div class="solution-content">
-                <div class="solution-text fade-in">
-                    <span class="section-tag">The Solution</span>
-                    <h2>CAPS AI Studio: <span>3 Simple Steps</span></h2>
-                    <p>A no-code platform that transforms any CAPS document, textbook chapter, or lesson plan into ready-to-teach materials — instantly.</p>
-                    <div class="solution-steps">
-                        <div class="step">
-                            <div class="step-number">1</div>
-                            <div class="step-content">
-                                <h4>Upload</h4>
-                                <p>Drop your CAPS PDF, textbook, or lesson plan. Our AI reads and understands the content.</p>
-                            </div>
-                        </div>
-                        <div class="step">
-                            <div class="step-number">2</div>
-                            <div class="step-content">
-                                <h4>Generate</h4>
-                                <p>Instantly create chat assistants, slide decks, quizzes, audio lessons, and multilingual notes — all CAPS-aligned.</p>
-                            </div>
-                        </div>
-                        <div class="step">
-                            <div class="step-number">3</div>
-                            <div class="step-content">
-                                <h4>Share</h4>
-                                <p>Export to Google Drive, SharePoint, or print. Share directly with learners and colleagues.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="solution-visual fade-in">
-                    <div class="solution-mockup">
-                        <div class="mockup-header">
-                            <div class="mockup-dot red"></div>
-                            <div class="mockup-dot yellow"></div>
-                            <div class="mockup-dot green"></div>
-                        </div>
-                        <div class="mockup-body">
-                            <div class="mockup-upload">
-                                <div class="upload-icon">📄</div>
-                                <p>Drop CAPS document here</p>
-                            </div>
-                            <div class="mockup-outputs">
-                                <div class="mockup-output">
-                                    <div class="out-icon chat">💬</div>
-                                    <span>Chat Assistant</span>
-                                </div>
-                                <div class="mockup-output">
-                                    <div class="out-icon slides">📊</div>
-                                    <span>Slide Deck</span>
-                                </div>
-                                <div class="mockup-output">
-                                    <div class="out-icon quiz"></div>
-                                    <span>Quiz & Worksheet</span>
-                                </div>
-                                <div class="mockup-output">
-                                    <div class="out-icon audio">🎧</div>
-                                    <span>Audio Lesson</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="subjects-banner fade-in">
+                <h3>All CAPS Subjects Supported</h3>
+                <div class="subjects-tags">
+                    <span class="subject-tag">Mathematics</span>
+                    <span class="subject-tag">English HL</span>
+                    <span class="subject-tag">Afrikaans FAL</span>
+                    <span class="subject-tag">isiZulu HL</span>
+                    <span class="subject-tag">isiXhosa HL</span>
+                    <span class="subject-tag">Natural Sciences</span>
+                    <span class="subject-tag">Social Sciences</span>
+                    <span class="subject-tag">Life Skills</span>
+                    <span class="subject-tag">Creative Arts</span>
+                    <span class="subject-tag">Physical Education</span>
+                    <span class="subject-tag">Technology</span>
+                    <span class="subject-tag">Economic & Management Sciences</span>
+                    <span class="subject-tag">Life Orientation</span>
+                    <span class="subject-tag">Beginning Knowledge</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features" id="features">
+    <!-- Teacher Studio Section -->
+    <section class="section studio-section" id="studio">
         <div class="section-container">
             <div class="section-header fade-in">
-                <span class="section-tag">Features</span>
-                <h2>Everything Teachers Need</h2>
-                <p>Built specifically for South African Foundation Phase educators.</p>
+                <span class="section-tag"><i class="fas fa-wand-magic-sparkles"></i> Teacher Studio</span>
+                <h2>Your AI-Powered Teaching Workspace</h2>
+                <p>Like NotebookLM, but designed for SA classrooms. Chat with your curriculum, generate materials, and share to learners instantly.</p>
+            </div>
+            <div class="studio-showcase">
+                <div class="studio-mockup fade-in">
+                    <div class="studio-mockup-bar">
+                        <div class="studio-dot red"></div>
+                        <div class="studio-dot yellow"></div>
+                        <div class="studio-dot green"></div>
+                    </div>
+                    <div class="studio-mockup-body">
+                        <div class="studio-chat-area">
+                            <div class="chat-message">
+                                <div class="chat-avatar user"><i class="fas fa-user"></i></div>
+                                <div class="chat-bubble user-bubble">
+                                    <p>Generate a 15-question quiz on fractions for Grade 4, with 5 word problems. Include isiZulu translations for key terms.</p>
+                                </div>
+                            </div>
+                            <div class="chat-message">
+                                <div class="chat-avatar ai"><i class="fas fa-robot"></i></div>
+                                <div class="chat-bubble">
+                                    <p>✅ Done! I've created a 15-question quiz on fractions for Grade 4:<br><br>• 10 multiple choice questions<br>• 5 word problems with real-life scenarios<br>• isiZulu translations for: fraction (iqhezu), numerator (inombolo engaphezulu), denominator (inombolo engaphansi)<br><br>📊 Ready to share to Grade 4A (32 learners)</p>
+                                </div>
+                            </div>
+                            <div class="chat-message">
+                                <div class="chat-avatar user"><i class="fas fa-user"></i></div>
+                                <div class="chat-bubble user-bubble">
+                                    <p>Also create flashcards and an audio summary</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="studio-input-area">
+                            <div class="studio-input">Ask Fundisa AI or generate materials...</div>
+                            <button class="studio-send-btn"><i class="fas fa-paper-plane"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="studio-info fade-in">
+                    <h2>Chat, Create & <span>Share</span> in Seconds</h2>
+                    <p>Your intelligent teaching companion. Upload any CAPS document and let AI help you prepare lessons, assessments, and learning materials across all content types.</p>
+                    <div class="studio-features-list">
+                        <div class="studio-feature-item">
+                            <div class="studio-feature-icon purple"><i class="fas fa-comments"></i></div>
+                            <div>
+                                <h4>Chat with Your Curriculum</h4>
+                                <p>Ask questions about any topic. AI responds using your uploaded CAPS content with citations.</p>
+                            </div>
+                        </div>
+                        <div class="studio-feature-item">
+                            <div class="studio-feature-icon teal"><i class="fas fa-magic"></i></div>
+                            <div>
+                                <h4>One-Click Generation</h4>
+                                <p>Generate quizzes, slides, flashcards, audio lessons, and video summaries from any document.</p>
+                            </div>
+                        </div>
+                        <div class="studio-feature-item">
+                            <div class="studio-feature-icon amber"><i class="fas fa-users"></i></div>
+                            <div>
+                                <h4>Share to Student Groups</h4>
+                                <p>Send materials directly to your class groups on the learner app. Track completion & scores.</p>
+                            </div>
+                        </div>
+                        <div class="studio-feature-item">
+                            <div class="studio-feature-icon coral"><i class="fas fa-chart-line"></i></div>
+                            <div>
+                                <h4>Assessment Analytics</h4>
+                                <p>See who completed work, average scores, and struggling learners — all in real-time.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Share to Student Groups Section -->
+    <section class="section share-section" id="share">
+        <div class="section-container">
+            <div class="share-showcase">
+                <div class="share-info fade-in">
+                    <span class="section-tag"><i class="fas fa-share-alt"></i> Share & Assign</span>
+                    <h2>Send Materials to <span>Learner Groups</span> Instantly</h2>
+                    <p>Generate any content type in the Studio and push it directly to your class groups on the Fundisa Learner App. Track who's done what, in real-time.</p>
+                    <div class="content-types">
+                        <div class="content-type">
+                            <div class="content-type-icon audio"><i class="fas fa-headphones"></i></div>
+                            <div><span>Audio Lessons</span><small>Multilingual narration</small></div>
+                        </div>
+                        <div class="content-type">
+                            <div class="content-type-icon video"><i class="fas fa-video"></i></div>
+                            <div><span>Video Summaries</span><small>Short explainers</small></div>
+                        </div>
+                        <div class="content-type">
+                            <div class="content-type-icon slides"><i class="fas fa-presentation-screen"></i></div>
+                            <div><span>Slide Decks</span><small>Classroom-ready</small></div>
+                        </div>
+                        <div class="content-type">
+                            <div class="content-type-icon quiz"><i class="fas fa-question-circle"></i></div>
+                            <div><span>Quizzes & Tests</span><small>Auto-marked</small></div>
+                        </div>
+                        <div class="content-type">
+                            <div class="content-type-icon flash"><i class="fas fa-clone"></i></div>
+                            <div><span>Flashcards</span><small>Spaced repetition</small></div>
+                        </div>
+                        <div class="content-type">
+                            <div class="content-type-icon report"><i class="fas fa-file-alt"></i></div>
+                            <div><span>Study Reports</span><small>Downloadable PDFs</small></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="share-visual fade-in">
+                    <div class="share-mockup">
+                        <div class="share-header">
+                            <h4><i class="fas fa-paper-plane"></i> Share to Student Groups</h4>
+                            <p>Grade 5 Natural Sciences — Ecosystems Quiz</p>
+                        </div>
+                        <div class="share-body">
+                            <div class="share-group">
+                                <div class="share-group-avatar">5A</div>
+                                <div class="share-group-info">
+                                    <span>Grade 5A</span>
+                                    <small>32 learners • Mrs Nkosi</small>
+                                </div>
+                                <div class="share-group-badge">Selected</div>
+                            </div>
+                            <div class="share-group">
+                                <div class="share-group-avatar">5B</div>
+                                <div class="share-group-info">
+                                    <span>Grade 5B</span>
+                                    <small>28 learners • Mr Dlamini</small>
+                                </div>
+                                <div class="share-group-badge">Selected</div>
+                            </div>
+                            <div class="share-group">
+                                <div class="share-group-avatar">5C</div>
+                                <div class="share-group-info">
+                                    <span>Grade 5C</span>
+                                    <small>30 learners • Ms Van Wyk</small>
+                                </div>
+                            </div>
+                            <button class="share-send-btn">
+                                <i class="fas fa-paper-plane"></i> Send to 2 Groups (60 Learners)
+                            </button>
+                            <div style="text-align: center; margin-top: 12px;">
+                                <small style="color: var(--gray-400); font-size: 0.75rem;">
+                                    <i class="fas fa-bell"></i> Learners will be notified on their app
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Student App Section -->
+    <section class="section student-section" id="student-app">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-tag"><i class="fas fa-mobile-alt"></i> Fundisa Learner App</span>
+                <h2>Kids Log In, Learn & Play</h2>
+                <p>A safe, fun mobile app where learners complete quizzes, listen to audio lessons, practice flashcards, and watch videos — all assigned by their teacher.</p>
+            </div>
+            <div class="student-showcase">
+                <div class="student-features fade-in">
+                    <div class="student-feature">
+                        <div class="student-feature-icon" style="background: rgba(108,60,225,0.2); color: var(--primary-light);"><i class="fas fa-user-shield"></i></div>
+                        <div>
+                            <h4>Safe Login for Kids</h4>
+                            <p>Simple PIN or QR code login. No personal data collected. POPIA-compliant child safety.</p>
+                        </div>
+                    </div>
+                    <div class="student-feature">
+                        <div class="student-feature-icon" style="background: rgba(20,184,166,0.2); color: var(--teal-light);"><i class="fas fa-gamepad"></i></div>
+                        <div>
+                            <h4>Gamified Learning</h4>
+                            <p>Earn stars, unlock badges, and climb the class leaderboard. Makes homework fun!</p>
+                        </div>
+                    </div>
+                    <div class="student-feature">
+                        <div class="student-feature-icon" style="background: rgba(245,158,11,0.2); color: var(--accent-light);"><i class="fas fa-wifi-slash"></i></div>
+                        <div>
+                            <h4>Works Offline</h4>
+                            <p>Content downloads when online, works anywhere. Perfect for rural and township schools.</p>
+                        </div>
+                    </div>
+                    <div class="student-feature">
+                        <div class="student-feature-icon" style="background: rgba(244,63,94,0.2); color: #FB7185;"><i class="fas fa-language"></i></div>
+                        <div>
+                            <h4>Multilingual Support</h4>
+                            <p>Learn in your home language — isiZulu, isiXhosa, Afrikaans, English & more.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="fade-in">
+                    <div class="phone-mockup">
+                        <div class="phone-screen">
+                            <div class="phone-notch"></div>
+                            <div class="phone-app-header">
+                                <h5>🎓 Fundisa Learner</h5>
+                                <small>Hello, Amahle! 👋 Grade 5A</small>
+                            </div>
+                            <div class="phone-app-body">
+                                <div class="phone-welcome">
+                                    <p>⭐ You have 4 new tasks today!</p>
+                                    <small>Complete them to earn 40 stars</small>
+                                </div>
+                                <div class="phone-tasks">
+                                    <div class="phone-task">
+                                        <div class="phone-task-icon quiz"><i class="fas fa-question-circle"></i></div>
+                                        <div><span>Ecosystems Quiz</span><small>Natural Sciences • 15 Qs</small></div>
+                                        <div class="phone-task-status new">NEW</div>
+                                    </div>
+                                    <div class="phone-task">
+                                        <div class="phone-task-icon audio"><i class="fas fa-headphones"></i></div>
+                                        <div><span>Audio Lesson</span><small>Food Chains • 8 min</small></div>
+                                        <div class="phone-task-status new">NEW</div>
+                                    </div>
+                                    <div class="phone-task">
+                                        <div class="phone-task-icon flash"><i class="fas fa-clone"></i></div>
+                                        <div><span>Flashcards</span><small>Vocabulary • 15 cards</small></div>
+                                        <div class="phone-task-status pending">IN PROGRESS</div>
+                                    </div>
+                                    <div class="phone-task">
+                                        <div class="phone-task-icon video"><i class="fas fa-video"></i></div>
+                                        <div><span>Video Summary</span><small>Recap • 3 min</small></div>
+                                        <div class="phone-task-status done">DONE ✓</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="student-app-info fade-in">
+                    <div class="student-feature">
+                        <div class="student-feature-icon" style="background: rgba(16,185,129,0.2); color: #34D399;"><i class="fas fa-trophy"></i></div>
+                        <div>
+                            <h4>Progress Tracking</h4>
+                            <p>See quiz scores, completed tasks, and improvement over time. Parents can view too.</p>
+                        </div>
+                    </div>
+                    <div class="student-feature">
+                        <div class="student-feature-icon" style="background: rgba(14,165,233,0.2); color: #38BDF8;"><i class="fas fa-bell"></i></div>
+                        <div>
+                            <h4>Instant Notifications</h4>
+                            <p>Get notified when your teacher shares new work. Never miss a task again.</p>
+                        </div>
+                    </div>
+                    <div class="student-feature">
+                        <div class="student-feature-icon" style="background: rgba(236,72,153,0.2); color: #F472B6;"><i class="fas fa-brain"></i></div>
+                        <div>
+                            <h4>Spaced Repetition</h4>
+                            <p>AI schedules flashcard reviews at optimal times so learners remember more, longer.</p>
+                        </div>
+                    </div>
+                    <div class="student-feature">
+                        <div class="student-feature-icon" style="background: rgba(108,60,225,0.2); color: #A78BFA;"><i class="fas fa-robot"></i></div>
+                        <div>
+                            <h4>AI Study Buddy</h4>
+                            <p>Kids can ask questions about their work and get kid-friendly explanations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Download Section -->
+    <section class="app-download">
+        <div class="app-download-container fade-in">
+            <h2>Download the Fundisa App</h2>
+            <p>Teachers create on web or mobile. Learners complete work on their phones or tablets. Available for Android & iOS.</p>
+            <div class="app-buttons">
+                <a href="#" class="app-btn">
+                    <i class="fab fa-google-play"></i>
+                    <div class="app-btn-text">
+                        <small>GET IT ON</small>
+                        <span>Google Play</span>
+                    </div>
+                </a>
+                <a href="#" class="app-btn">
+                    <i class="fab fa-apple"></i>
+                    <div class="app-btn-text">
+                        <small>DOWNLOAD ON THE</small>
+                        <span>App Store</span>
+                    </div>
+                </a>
+                <a href="#" class="app-btn">
+                    <i class="fas fa-globe"></i>
+                    <div class="app-btn-text">
+                        <small>USE IN BROWSER</small>
+                        <span>Web App</span>
+                    </div>
+                </a>
+            </div>
+            <div class="app-features-row">
+                <div class="app-feature-tag"><i class="fas fa-check-circle"></i> Free for learners</div>
+                <div class="app-feature-tag"><i class="fas fa-check-circle"></i> Works offline</div>
+                <div class="app-feature-tag"><i class="fas fa-check-circle"></i> Low data usage</div>
+                <div class="app-feature-tag"><i class="fas fa-check-circle"></i> Child-safe</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="section features-section" id="features">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-tag"><i class="fas fa-sparkles"></i> Platform Features</span>
+                <h2>Everything You Need to Teach & Learn</h2>
+                <p>Built for South African primary schools. CAPS-aligned. Offline-first. Multilingual.</p>
             </div>
             <div class="features-grid">
                 <div class="feature-card fade-in">
-                    <div class="feature-icon navy">📚</div>
+                    <div class="feature-icon purple"><i class="fas fa-book-open"></i></div>
                     <h3>CAPS-First Design</h3>
-                    <p>Every output is aligned to Grade, Subject, Term, and Topic. No generic AI — only curriculum-relevant content.</p>
+                    <p>Every output aligned to Grade, Subject, Term & Topic. No generic AI — only curriculum-relevant content for R–7.</p>
                 </div>
                 <div class="feature-card fade-in">
-                    <div class="feature-icon gold">🌍</div>
-                    <h3>Multilingual Output</h3>
-                    <p>Generate lessons in English, isiZulu, isiXhosa, and Afrikaans using InkubaLM — supporting home-language learners.</p>
+                    <div class="feature-icon teal"><i class="fas fa-language"></i></div>
+                    <h3>11 SA Languages</h3>
+                    <p>Generate in English, isiZulu, isiXhosa, Afrikaans, Sepedi, Setswana & more via InkubaLM multilingual AI.</p>
                 </div>
                 <div class="feature-card fade-in">
-                    <div class="feature-icon teal">🔒</div>
-                    <h3>POPIA Compliant</h3>
-                    <p>All data stays in South Africa. Teacher-owned, consent-based, and fully compliant with SA data protection laws.</p>
+                    <div class="feature-icon amber"><i class="fas fa-wand-magic-sparkles"></i></div>
+                    <h3>NotebookLM-Style Studio</h3>
+                    <p>Chat with your documents, ask questions, and generate 6+ content types from any CAPS upload.</p>
                 </div>
                 <div class="feature-card fade-in">
-                    <div class="feature-icon navy">📱</div>
-                    <h3>No-Code Interface</h3>
-                    <p>Zero tech skills needed. Upload a document and go — designed for teachers, not developers.</p>
+                    <div class="feature-icon coral"><i class="fas fa-mobile-alt"></i></div>
+                    <h3>Learner Mobile App</h3>
+                    <p>Kids log in with a PIN, complete tasks, earn stars, and learn through gamified content on their phones.</p>
                 </div>
                 <div class="feature-card fade-in">
-                    <div class="feature-icon gold">📡</div>
-                    <h3>Offline-Ready</h3>
-                    <p>Self-hosted option for schools with limited connectivity. Works in rural and under-resourced settings.</p>
+                    <div class="feature-icon sky"><i class="fas fa-chart-bar"></i></div>
+                    <h3>Real-Time Analytics</h3>
+                    <p>Track quiz scores, completion rates, and struggling learners. Data-driven teaching decisions.</p>
                 </div>
                 <div class="feature-card fade-in">
-                    <div class="feature-icon teal">🎓</div>
-                    <h3>CPD-Aligned Training</h3>
-                    <p>Earn ETDP SETA facilitator credentials while learning. Professional development that counts.</p>
+                    <div class="feature-icon green"><i class="fas fa-shield-alt"></i></div>
+                    <h3>POPIA & Child Safe</h3>
+                    <p>All data stays in SA. No personal child data collected. PIN login. Full POPIA compliance.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- How It Works -->
-    <section class="how-it-works">
+    <section class="section how-section">
         <div class="section-container">
             <div class="section-header fade-in">
-                <span class="section-tag">How It Works</span>
-                <h2>From Upload to Lesson in 60 Seconds</h2>
-                <p>Our AI-powered pipeline transforms CAPS content into classroom-ready materials.</p>
+                <span class="section-tag"><i class="fas fa-route"></i> How It Works</span>
+                <h2>From Upload to Learner in 4 Steps</h2>
+                <p>The complete teaching workflow — from curriculum content to learner assessment</p>
             </div>
-            <div class="steps-timeline">
-                <div class="timeline-step fade-in">
-                    <div class="timeline-icon">📤</div>
-                    <h3>Upload Your Content</h3>
-                    <p>Drop any CAPS PDF, textbook chapter, or lesson plan. Our AI chunks, tags, and indexes it by Grade, Subject, Term, and Topic.</p>
+            <div class="how-steps">
+                <div class="how-step fade-in">
+                    <div class="how-step-num">1</div>
+                    <h4>Upload Content</h4>
+                    <p>Drop any CAPS document, textbook, or lesson plan. AI indexes it by grade & topic.</p>
                 </div>
-                <div class="timeline-step fade-in">
-                    <div class="timeline-icon">🤖</div>
-                    <h3>AI Generates Outputs</h3>
-                    <p>Powered by Qwen3.6 and InkubaLM, the system creates chat assistants, slides, quizzes, audio lessons, and multilingual notes — all CAPS-aligned.</p>
+                <div class="how-step fade-in">
+                    <div class="how-step-num">2</div>
+                    <h4>Chat & Generate</h4>
+                    <p>Ask questions or generate quizzes, slides, flashcards, audio & video in one click.</p>
                 </div>
-                <div class="timeline-step fade-in">
-                    <div class="timeline-icon">📤</div>
-                    <h3>Share & Teach</h3>
-                    <p>Export to Google Drive, SharePoint, or print. Share notebooks with students. Focus on teaching, not paperwork.</p>
+                <div class="how-step fade-in">
+                    <div class="how-step-num">3</div>
+                    <h4>Share to Learners</h4>
+                    <p>Push materials to class groups on the Fundisa Learner App. Kids get instant notifications.</p>
+                </div>
+                <div class="how-step fade-in">
+                    <div class="how-step-num">4</div>
+                    <h4>Track & Assess</h4>
+                    <p>See real-time completion, quiz scores, and analytics. Identify learners who need help.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pricing Section -->
-    <section class="pricing" id="pricing">
+    <!-- Pricing -->
+    <section class="section pricing-section" id="pricing">
         <div class="section-container">
             <div class="section-header fade-in">
-                <span class="section-tag">Pricing</span>
+                <span class="section-tag"><i class="fas fa-tag"></i> Pricing</span>
                 <h2>Simple, Teacher-Friendly Pricing</h2>
-                <p>Start free. Scale when you're ready.</p>
+                <p>Start free. Upgrade when your school is ready. Learner app always free.</p>
             </div>
             <div class="pricing-grid">
                 <div class="pricing-card fade-in">
                     <div class="pricing-badge">Free</div>
-                    <div class="pricing-name">Free</div>
+                    <div class="pricing-name">Starter</div>
                     <div class="pricing-desc">For individual teachers</div>
-                    <div class="pricing-price">R0<span>/month</span></div>
+                    <div class="pricing-price">R0<span>/mo</span></div>
                     <div class="pricing-period">Forever free</div>
                     <ul class="pricing-features">
-                        <li>3 uploads per month</li>
-                        <li>Basic chat assistant</li>
-                        <li>Export to Google Drive</li>
+                        <li>5 uploads per month</li>
+                        <li>Basic quiz & flashcard generation</li>
+                        <li>1 class group (30 learners)</li>
+                        <li>Learner app access</li>
                         <li>Email support</li>
                     </ul>
                     <button class="pricing-btn primary">Get Started Free</button>
                 </div>
                 <div class="pricing-card featured fade-in">
                     <div class="pricing-badge">Most Popular</div>
-                    <div class="pricing-name">Pro</div>
-                    <div class="pricing-desc">For dedicated teachers</div>
-                    <div class="pricing-price">R149<span>/month</span></div>
+                    <div class="pricing-name">Pro Teacher</div>
+                    <div class="pricing-desc">For dedicated educators</div>
+                    <div class="pricing-price">R149<span>/mo</span></div>
                     <div class="pricing-period">or R1,490/year (save 17%)</div>
                     <ul class="pricing-features">
                         <li>Unlimited uploads</li>
-                        <li>Slides, quizzes & audio</li>
-                        <li>Multilingual output</li>
+                        <li>All 6 content types</li>
+                        <li>Unlimited class groups</li>
+                        <li>Multilingual generation</li>
+                        <li>Analytics dashboard</li>
                         <li>Priority support</li>
-                        <li>Advanced analytics</li>
                     </ul>
-                    <button class="pricing-btn gold">Start 14-Day Free Trial</button>
+                    <button class="pricing-btn featured-btn">Start 14-Day Free Trial</button>
                 </div>
                 <div class="pricing-card fade-in">
                     <div class="pricing-badge">Schools</div>
-                    <div class="pricing-name">Enterprise</div>
-                    <div class="pricing-desc">For schools & districts</div>
+                    <div class="pricing-name">School License</div>
+                    <div class="pricing-desc">For entire schools & districts</div>
                     <div class="pricing-price">Custom</div>
                     <div class="pricing-period">Annual licensing</div>
                     <ul class="pricing-features">
-                        <li>Unlimited teacher licenses</li>
-                        <li>Custom CAPS integrations</li>
+                        <li>Unlimited teacher accounts</li>
+                        <li>School-wide analytics</li>
+                        <li>Custom CAPS integration</li>
                         <li>Dedicated success manager</li>
-                        <li>School analytics dashboard</li>
                         <li>ETDP SETA training included</li>
+                        <li>Offline server option</li>
                     </ul>
                     <button class="pricing-btn primary">Contact Sales</button>
                 </div>
@@ -1702,41 +1903,44 @@
     </section>
 
     <!-- Testimonials -->
-    <section class="testimonials">
+    <section class="section testimonials-section">
         <div class="section-container">
             <div class="section-header fade-in">
-                <span class="section-tag">Testimonials</span>
-                <h2>What Pilot Teachers Say</h2>
-                <p>Early feedback from South African educators using Fundisa AI.</p>
+                <span class="section-tag"><i class="fas fa-heart"></i> Testimonials</span>
+                <h2>Loved by Teachers & Learners</h2>
+                <p>Real feedback from South African educators piloting Fundisa AI</p>
             </div>
             <div class="testimonial-grid">
                 <div class="testimonial-card fade-in">
-                    <p class="testimonial-text">"Fundisa AI cut my lesson planning time from 3 hours to 30 minutes. I can finally focus on my learners instead of paperwork."</p>
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"I used to spend 3 hours making a quiz. Now I upload my CAPS doc and Fundisa creates a quiz, flashcards AND audio lesson in 60 seconds. Then I share it to the kids' app. Game changer!"</p>
                     <div class="testimonial-author">
                         <div class="testimonial-avatar">TM</div>
                         <div>
-                            <div class="testimonial-name">Thandi M.</div>
-                            <div class="testimonial-role">Foundation Phase Teacher, Johannesburg</div>
+                            <div class="testimonial-name">Thandi Mokoena</div>
+                            <div class="testimonial-role">Grade 4 Teacher, Soweto</div>
                         </div>
                     </div>
                 </div>
                 <div class="testimonial-card fade-in">
-                    <p class="testimonial-text">"The multilingual feature is a game-changer. I can now create isiZulu lesson notes for my home-language learners without spending hours translating."</p>
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"My Grade 2s LOVE the learner app. They beg to do their flashcards at home! The gamification with stars and badges keeps them engaged. Even parents are impressed."</p>
                     <div class="testimonial-author">
                         <div class="testimonial-avatar">SN</div>
                         <div>
-                            <div class="testimonial-name">Sipho N.</div>
-                            <div class="testimonial-role">Grade 4 Teacher, Gauteng</div>
+                            <div class="testimonial-name">Sipho Ndlovu</div>
+                            <div class="testimonial-role">Foundation Phase, Durban</div>
                         </div>
                     </div>
                 </div>
                 <div class="testimonial-card fade-in">
-                    <p class="testimonial-text">"As a principal, I've seen teacher morale improve since we piloted Fundisa AI. Less burnout, more energy for teaching. This is the future."</p>
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"The multilingual audio lessons are incredible. My Grade 6 learners can listen to Natural Sciences in isiXhosa at home. It's bridging the language gap beautifully."</p>
                     <div class="testimonial-author">
-                        <div class="testimonial-avatar">LK</div>
+                        <div class="testimonial-avatar">NM</div>
                         <div>
-                            <div class="testimonial-name">Lerato K.</div>
-                            <div class="testimonial-role">School Principal, Johannesburg</div>
+                            <div class="testimonial-name">Nomsa Mthembu</div>
+                            <div class="testimonial-role">Grade 6 Teacher, Eastern Cape</div>
                         </div>
                     </div>
                 </div>
@@ -1744,20 +1948,20 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta" id="contact">
+    <!-- CTA -->
+    <section class="cta-section" id="contact">
         <div class="cta-container fade-in">
-            <h2>Ready to Give Teachers Back <span>Their Time</span>?</h2>
-            <p>Join our free pilot programme. Zero cost. Full support. Co-create the future of SA education together.</p>
+            <h2>Ready to Transform Your Classroom?</h2>
+            <p>Join our free pilot programme. Teachers create, learners engage, results follow. Zero cost to start.</p>
             <div class="cta-buttons">
-                <a href="mailto:reginald@fundisaai.co.za" class="btn-primary">
-                    Request Free Pilot →
+                <a href="mailto:reginald@fundisaai.co.za" class="btn-hero-primary">
+                    <i class="fas fa-rocket"></i> Request Free Pilot
                 </a>
-                <a href="https://wa.me/" class="btn-secondary">
-                    💬 WhatsApp Us
+                <a href="https://wa.me/27712345678" class="btn-hero-secondary" style="color: white; border-color: rgba(255,255,255,0.3);">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Us
                 </a>
             </div>
-            <p class="cta-note">🇿🇦 Proudly South African • POPIA Compliant • ETDP SETA Aligned</p>
+            <p class="cta-note">🇿🇦 Proudly South African • POPIA Compliant • ETDP SETA Aligned • Part of ThutoTech Ecosystem</p>
         </div>
     </section>
 
@@ -1766,71 +1970,57 @@
         <div class="footer-container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <div class="footer-logo">
-                        <svg class="footer-logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M5 8C5 8 8 6 20 6C32 6 35 8 35 8V32C35 32 32 34 20 34C8 34 5 32 5 32V8Z" fill="#0A2E5A" stroke="#0A2E5A" stroke-width="1.5"/>
-                            <path d="M20 6V34" stroke="#0A2E5A" stroke-width="1.5"/>
-                            <path d="M5 8C5 8 8 6 20 6" stroke="#008B8B" stroke-width="1.5"/>
-                            <path d="M35 8C35 8 32 6 20 6" stroke="#008B8B" stroke-width="1.5"/>
-                            <circle cx="12" cy="14" r="1.5" fill="#D4AF37"/>
-                            <circle cx="16" cy="10" r="1.5" fill="#D4AF37"/>
-                            <circle cx="24" cy="10" r="1.5" fill="#D4AF37"/>
-                            <circle cx="28" cy="14" r="1.5" fill="#D4AF37"/>
-                            <circle cx="14" cy="20" r="1.5" fill="#D4AF37"/>
-                            <circle cx="26" cy="20" r="1.5" fill="#D4AF37"/>
-                            <circle cx="12" cy="26" r="1.5" fill="#D4AF37"/>
-                            <circle cx="28" cy="26" r="1.5" fill="#D4AF37"/>
-                            <path d="M12 14L16 10M16 10L24 10M24 10L28 14" stroke="#0A2E5A" stroke-width="1"/>
-                            <path d="M14 20L12 14M26 20L28 14" stroke="#0A2E5A" stroke-width="1"/>
-                            <path d="M12 26L14 20M28 26L26 20" stroke="#0A2E5A" stroke-width="1"/>
-                            <path d="M16 10L14 20M24 10L26 20" stroke="#0A2E5A" stroke-width="1"/>
-                        </svg>
-                        <span class="footer-logo-text">Fundisa <span>AI</span></span>
+                    <a href="#" class="nav-logo" style="margin-bottom: 0.5rem;">
+                        <div class="nav-logo-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <span class="nav-logo-text" style="color: white;">Fundisa <span>AI</span></span>
+                    </a>
+                    <p>AI-powered teaching studio for South African primary schools. Generate, share, and assess learning materials across all grades R–7.</p>
+                    <div class="footer-eco-badge">
+                        <i class="fas fa-layer-group"></i> Part of ThutoTech Ecosystem
                     </div>
-                    <p>AI-powered teaching tools for South African educators. Reducing admin burden, enhancing learner outcomes, and empowering teachers to do what they do best.</p>
                     <div class="footer-social">
-                        <a href="#" title="WhatsApp">💬</a>
-                        <a href="#" title="Facebook">f</a>
-                        <a href="#" title="LinkedIn">in</a>
-                        <a href="#" title="YouTube">▶</a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
                 <div class="footer-column">
-                    <h4>Product</h4>
+                    <h4>Teacher Studio</h4>
                     <ul>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#pricing">Pricing</a></li>
-                        <li><a href="#">CAPS Integration</a></li>
-                        <li><a href="#">Multilingual</a></li>
-                        <li><a href="#">API Access</a></li>
+                        <li><a href="#">Upload & Generate</a></li>
+                        <li><a href="#">Quiz Builder</a></li>
+                        <li><a href="#">Flashcard Creator</a></li>
+                        <li><a href="#">Audio Lessons</a></li>
+                        <li><a href="#">Share to Groups</a></li>
+                        <li><a href="#">Analytics</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h4>Company</h4>
+                    <h4>Learner App</h4>
                     <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Pilot Programme</a></li>
-                        <li><a href="#">Partnerships</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Download (Android)</a></li>
+                        <li><a href="#">Download (iOS)</a></li>
+                        <li><a href="#">Web App</a></li>
+                        <li><a href="#">Parent Portal</a></li>
+                        <li><a href="#">Safety & Privacy</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h4>Support</h4>
+                    <h4>Ecosystem</h4>
                     <ul>
-                        <li><a href="#">Help Centre</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">POPIA Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="https://reggie9102.github.io/Thuto-Technologies-PTY-LTD/" target="_blank">ThutoTech Main</a></li>
+                        <li><a href="#">MatricMate AI</a></li>
+                        <li><a href="#">StudentMart</a></li>
+                        <li><a href="#">SuperviseAI</a></li>
+                        <li><a href="#">Thuto AI Academy</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2025 Fundisa AI (Reggie Express Pty Ltd). All rights reserved.</p>
-                <div>
-                    <a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Cookies</a>
-                </div>
+                <p>© 2025 Fundisa AI — A <a href="https://reggie9102.github.io/Thuto-Technologies-PTY-LTD/" target="_blank">Thuto Technologies</a> Product. All rights reserved.</p>
+                <p><a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">POPIA</a> · <a href="#">Safety</a></p>
             </div>
         </div>
     </footer>
@@ -1839,15 +2029,19 @@
         // Mobile Navigation Toggle
         const mobileToggle = document.getElementById('mobileToggle');
         const navLinks = document.getElementById('navLinks');
-
         mobileToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
+            const icon = mobileToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
         });
 
-        // Close mobile menu when link clicked
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
+                const icon = mobileToggle.querySelector('i');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
             });
         });
 
@@ -1863,12 +2057,7 @@
 
         // Fade-in animation on scroll
         const fadeElements = document.querySelectorAll('.fade-in');
-
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1877,62 +2066,71 @@
                 }
             });
         }, observerOptions);
-
         fadeElements.forEach(el => observer.observe(el));
 
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+                const target = document.querySelector(href);
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
 
-        // Counter animation for stats
-        function animateCounter(element, target, suffix = '') {
-            let current = 0;
-            const increment = target / 50;
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    current = target;
-                    clearInterval(timer);
-                }
-                element.textContent = Math.floor(current) + suffix;
-            }, 30);
-        }
+        // Interactive studio output cards
+        document.querySelectorAll('.studio-output-card').forEach(card => {
+            card.addEventListener('click', () => {
+                card.style.transform = 'scale(0.95)';
+                setTimeout(() => { card.style.transform = ''; }, 200);
+            });
+        });
 
-        // Trigger counter animation when stats are visible
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const statNumbers = entry.target.querySelectorAll('.stat-number');
-                    statNumbers.forEach(stat => {
-                        const text = stat.textContent;
-                        if (text.includes('70')) {
-                            animateCounter(stat, 70, '%');
-                        } else if (text.includes('5')) {
-                            animateCounter(stat, 5, '+');
-                        } else if (text.includes('100')) {
-                            animateCounter(stat, 100, '%');
-                        }
-                    });
-                    statsObserver.unobserve(entry.target);
+        // Share group selection
+        document.querySelectorAll('.share-group').forEach(group => {
+            group.addEventListener('click', () => {
+                const badge = group.querySelector('.share-group-badge');
+                if (badge) {
+                    if (badge.textContent === 'Selected') {
+                        badge.textContent = 'Select';
+                        badge.style.background = 'var(--gray-300)';
+                        badge.style.color = 'var(--gray-600)';
+                    } else {
+                        badge.textContent = 'Selected';
+                        badge.style.background = 'var(--primary)';
+                        badge.style.color = 'white';
+                    }
+                } else {
+                    const newBadge = document.createElement('div');
+                    newBadge.className = 'share-group-badge';
+                    newBadge.textContent = 'Selected';
+                    newBadge.style.background = 'var(--primary)';
+                    newBadge.style.color = 'white';
+                    group.appendChild(newBadge);
                 }
             });
-        }, { threshold: 0.5 });
+        });
 
-        const heroStats = document.querySelector('.hero-stats');
-        if (heroStats) {
-            statsObserver.observe(heroStats);
-        }
+        // Grade cards interaction
+        document.querySelectorAll('.grade-card').forEach(card => {
+            card.addEventListener('click', () => {
+                document.querySelectorAll('.grade-card').forEach(c => c.style.borderColor = '');
+                card.style.borderColor = 'var(--primary)';
+            });
+        });
+
+        // Subject tags interaction
+        document.querySelectorAll('.subject-tag').forEach(tag => {
+            tag.addEventListener('click', () => {
+                tag.style.borderColor = 'var(--primary)';
+                tag.style.color = 'var(--primary)';
+                tag.style.background = 'rgba(108,60,225,0.05)';
+            });
+        });
     </script>
 </body>
 </html>
-```
+
